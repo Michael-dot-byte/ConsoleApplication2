@@ -159,6 +159,7 @@
     <ClInclude Include="Person.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Status.h" />
+    <ClInclude Include="TestHeaderFile.h" />
     <ClInclude Include="Tweeter.h" />
     <ClInclude Include="Untility.h" />
   </ItemGroup>

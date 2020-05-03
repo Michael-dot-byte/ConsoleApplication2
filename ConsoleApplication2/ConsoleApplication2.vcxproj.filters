@@ -56,5 +56,8 @@
     <ClInclude Include="Employee.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="TestHeaderFile.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
