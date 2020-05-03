@@ -13,6 +13,7 @@
 #include <random>
 #include "Employee.h"
 #include <numeric>
+#include "Person.h"
 
 
 using namespace std;
@@ -433,8 +434,18 @@ int main()
 		cout << x << endl;
 	}*/
 
+	//Vector of own classes
+	/*vector<Person> persons{ {"Conni", "Klaus", 30},
+		{"Mike", "PL", 28},{"Peter", "Mehr", 40} };
+
+	persons.push_back(Person{ "John","Oliver",55 });
+	for (const auto& p:persons)
+	{
+		cout << p.GetName() << endl;
+	}
 	
+	return 0;*/
+
 	
-	return 0;
 }
 
