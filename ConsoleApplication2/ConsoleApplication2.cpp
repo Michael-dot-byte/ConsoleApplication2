@@ -418,8 +418,23 @@ int main()
 	string orig = "                  ";
 	reverse_copy(begin(sentence), end(sentence), begin(orig));*/
 
+	//read from file (string)
+	/*std::vector<string> lines{};
 
+	std::ifstream inputFile{ "C:\\Users\\ploes\\Desktop\\05_Lebensstil\\06_Weiterbildung\\05_Programmierung\\C++\\ConsoleApplication2\\data.txt.txt" };
+	//int n{};
+	string line{};
+	while (getline(inputFile, line))
+	{
+		lines.push_back(line);
+	}
+	for (const auto& x:lines)
+	{
+		cout << x << endl;
+	}*/
 
+	
+	
 	return 0;
 }
 
