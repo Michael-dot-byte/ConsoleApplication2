@@ -157,6 +157,7 @@
     <ClInclude Include="Accum.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Point2D.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="TestHeaderFile.h" />

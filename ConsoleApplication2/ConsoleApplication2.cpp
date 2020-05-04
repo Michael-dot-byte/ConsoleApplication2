@@ -14,12 +14,15 @@
 #include "Employee.h"
 #include <numeric>
 #include "Person.h"
+#include <set>
+#include "Point2D.h"
 
 
 using namespace std;
 using std::vector;
 using std::cout;
 
+//operator overload
 //ostream& operator<<(ostream& os, const vector<int>& v)
 //{
 //	os << "[ ";
@@ -31,6 +34,13 @@ using std::cout;
 //
 //	return os;
 //}
+
+inline bool operator<(const Point2D pointA, const Point2D pointB)
+{	
+	return pointA.Length() < pointB.Length();
+}
+
+
 
 int main()
 {
@@ -446,6 +456,21 @@ int main()
 	
 	return 0;*/
 
+	//storing unique objects with set
+	/*//in sorted order (no duplicates allowed)
+	set<string> colors{ "red","yellow","red", "blue" };
+	colors.insert("green");
+	colors.insert("green");
+	colors.erase("red");
+	auto it = colors.find("blue");
+
+	//set with custom classes
+	set<Point2D> points{ {20,30},{22,33},{2,3} };
+	points.insert(Point2D{ 10,20 });*/
+
 	
+
+
+	return 0;
 }
 

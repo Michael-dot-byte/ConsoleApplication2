@@ -59,5 +59,8 @@
     <ClInclude Include="TestHeaderFile.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Point2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
