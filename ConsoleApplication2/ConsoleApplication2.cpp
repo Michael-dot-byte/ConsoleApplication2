@@ -16,6 +16,8 @@
 #include "Person.h"
 #include <set>
 #include "Point2D.h"
+#include <map>
+#include <cassert>
 
 
 using namespace std;
@@ -40,7 +42,30 @@ inline bool operator<(const Point2D pointA, const Point2D pointB)
 	return pointA.Length() < pointB.Length();
 }
 
+//use find for maps
+void PrintC64Memory(map<string, int> const& memory) {
+	auto it = memory.find("C64");
+	//assert(it != memory.end());
+	
+	cout << "The C64 has " << it->second;
+}
 
+struct Airport
+{
+	string Name{};
+	string City{};
+	string Country{};
+	double Latitude{};
+	double Longitude{};
+	int AltitudeFeet{};
+
+	Airport() = default;
+	Airport(string const& name, string const& city, string const& country,
+		double latitude, double longitude, int altitudeFeet) :
+		Name(name), City(city), Country(country), Latitude(latitude),
+		Longitude(longitude), AltitudeFeet(altitudeFeet){}
+
+};
 
 int main()
 {
@@ -468,9 +493,68 @@ int main()
 	set<Point2D> points{ {20,30},{22,33},{2,3} };
 	points.insert(Point2D{ 10,20 });*/
 
+	//std::map; sorted order of key-value pair
+	map<int, string> numbers{
+		{1,"one"},{2,"two"},
+		{30,"thirty"},{41,"fourtyone"}, 
+		{4,"four"},{5,"five"}
+	};
+	numbers[2] = "modifiedTwo";
+	/*for (const auto& [key, value] : numbers) {
+		std::cout << key << " has value " << value << std::endl;
+	}*/
+
+	for (const auto& kv : numbers) {
+		std::cout << kv.first << " has value " << kv.second << std::endl;
+	}
+
+	map<string, int> computerMemoryKB{};
+	computerMemoryKB["C64"] = 64;
+	computerMemoryKB["Amiga 500"] = 512;
+	PrintC64Memory(computerMemoryKB);
+
+	std::map<string, string> dictonary{
+		{"hello", "ciao"},
+		{"good morning", "buon giorno"},
+		{"good eventing", "buona sera"},
+		{"church", "chiesa"},
+		{"ice cream", "gelato"}
+	};
+
+	dictonary.insert({ "museum", "museo" });
+	dictonary.insert({ "how much?", "quanto" });
+
+	for (auto const& kv : dictonary)
+	{
+		cout << kv.first << " = " << kv.second << endl;
+	};
+
+	map<string, Airport> airportDatabase{
+		{"SEA",
+			{"Seattle International", "Seattle", "United States", 47.449,
+			-122.300, 433}},
+		{"LAX",
+			{"Los Angeles International", "LA", "United States",
+			33.9425, -118, 125}},
+		{"FCO",
+			{"Leonardo da Vinci", "Rome", "Italy",
+			41.800, 12.45324, 13}}
+	};
+
+	cout << "Enter Code" << endl;
+	string code{};
+	cin >> code;
+
+	auto it = airportDatabase.find(code);
+	if (it != end(airportDatabase))
+	{
+		Airport const& airport = it->second;
+		cout << airport.Name << '\n';
+		cout << airport.City << '\n';
+		cout << airport.AltitudeFeet << '\n';
+	}
+
 	
-
-
 	return 0;
 }
 
