@@ -50,6 +50,7 @@ void PrintC64Memory(map<string, int> const& memory) {
 	cout << "The C64 has " << it->second;
 }
 
+//used for maps
 struct Airport
 {
 	string Name{};
@@ -67,8 +68,30 @@ struct Airport
 
 };
 
+//Interfaces
+class MyAbstractClass {
+public:
+	virtual void print() = 0;
+};
+
+class MyDerivedClass : public MyAbstractClass {
+public:
+	void print() override {
+		cout << "OK";
+	}
+};
+
+
 int main()
 {
+	//Interfaces and virtual
+	//Instanziierung der reinen virtual (abstract) class not allowed
+	//MyAbstractClass a;
+
+	//Die erbende Klasse muss die virtual Function implementieren
+	MyDerivedClass d;
+	d.print();
+	
 	//Initial Commit
 	/*Accum<int> integers(0);
 	integers += 3;
@@ -93,7 +116,7 @@ int main()
 		Person Mike("Mike", "PL", 111);
 		Mike.AddResource();
 	}*/
-
+	
 	//Person Kate("Kate", "Gregory", 456);
 	//Person& rKate = Kate;
 	//Person* pKate = &Kate;
@@ -494,15 +517,15 @@ int main()
 	points.insert(Point2D{ 10,20 });*/
 
 	//std::map; sorted order of key-value pair
-	map<int, string> numbers{
+	/*map<int, string> numbers{
 		{1,"one"},{2,"two"},
 		{30,"thirty"},{41,"fourtyone"}, 
 		{4,"four"},{5,"five"}
 	};
 	numbers[2] = "modifiedTwo";
-	/*for (const auto& [key, value] : numbers) {
+	for (const auto& [key, value] : numbers) {
 		std::cout << key << " has value " << value << std::endl;
-	}*/
+	}
 
 	for (const auto& kv : numbers) {
 		std::cout << kv.first << " has value " << kv.second << std::endl;
@@ -552,7 +575,9 @@ int main()
 		cout << airport.Name << '\n';
 		cout << airport.City << '\n';
 		cout << airport.AltitudeFeet << '\n';
-	}
+	}*/
+
+	
 
 	
 	return 0;
