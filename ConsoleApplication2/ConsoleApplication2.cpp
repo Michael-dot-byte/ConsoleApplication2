@@ -69,7 +69,7 @@ struct Airport
 };
 
 //Interfaces
-class MyAbstractClass {
+/*class MyAbstractClass {
 public:
 	virtual void print() = 0;
 };
@@ -79,18 +79,18 @@ public:
 	void print() override {
 		cout << "OK";
 	}
-};
+};*/
 
 
 int main()
 {
 	//Interfaces and virtual
-	//Instanziierung der reinen virtual (abstract) class not allowed
+	/*//Instanziierung der reinen virtual (abstract) class not allowed
 	//MyAbstractClass a;
 
 	//Die erbende Klasse muss die virtual Function implementieren
 	MyDerivedClass d;
-	d.print();
+	d.print();*/
 	
 	//Initial Commit
 	/*Accum<int> integers(0);
