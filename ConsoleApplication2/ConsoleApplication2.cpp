@@ -69,7 +69,7 @@ struct Airport
 };
 
 //Interfaces
-class MyAbstractClass {
+/*class MyAbstractClass {
 public:
 	virtual void print() = 0;
 };
@@ -79,7 +79,7 @@ public:
 	void print() override {
 		cout << "OK";
 	}
-};
+};*/
 
 //4.Klasse für Fehlerhandling
 class IndexOutOfBoundsException {};
