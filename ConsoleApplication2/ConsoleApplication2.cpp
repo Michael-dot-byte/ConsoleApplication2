@@ -81,16 +81,95 @@ public:
 	}
 };
 
+//4.Klasse für Fehlerhandling
+class IndexOutOfBoundsException {};
+
+//Arrays
+class IntArray {
+private:
+	int* m_ptr{ nullptr };	//Pointer towards memory location of defined elements 
+							//- defined in constructor
+	int m_size{ 0 };
+public:
+	IntArray() = default;
+
+	explicit IntArray(int size) {
+		if (size != 0)
+		{
+			//Allocating memory on heap
+			m_ptr = new int[size] {};
+			m_size = size;
+		}
+	}
+
+	//1.Destructor needed to avoid memory leaks
+	~IntArray() {
+		delete[] m_ptr;
+	}
+
+	//2.Operator overload to access elements of array even when m_ptr is private
+	//write access (by ref)
+	int& operator[](int index) {
+		if (! IsValidIndex(index))
+		{
+			throw IndexOutOfBoundsException{};
+		}
+		//return element at index
+		return m_ptr[index];		
+	}
+
+	//read access by value
+	int operator[](int index) const {
+		if (!IsValidIndex(index))
+		{
+			throw IndexOutOfBoundsException();
+		}
+		return m_ptr[index];
+	}
+
+	//don't change values in the class -> const
+	int Size() const {
+		return m_size;
+	}
+
+	bool IsEmpty() const {
+		return (m_size == 0);
+	}
+
+	//3.Bounds Checking
+	bool IsValidIndex(int index) const {
+		return (index >= 0) && (index < m_size);
+	}
+};
+
+
+
 
 int main()
 {
+	//Array
+	IntArray a{};
+	int aSize = a.Size();
+	//wenn Ergebnis in IsEmpty == true läuft Programm weiter, sonst Abbruch
+	assert(a.IsEmpty());
+
+	IntArray b{ 10 };
+	for (int i = 0; i < b.Size(); i++)
+	{
+		b[i] = i + 1;
+	}
+	
+	int bSize = b.Size();
+	assert(!b.IsEmpty());
+	int testVal = b[4];
+	
 	//Interfaces and virtual
-	//Instanziierung der reinen virtual (abstract) class not allowed
+	/*//Instanziierung der reinen virtual (abstract) class not allowed
 	//MyAbstractClass a;
 
 	//Die erbende Klasse muss die virtual Function implementieren
 	MyDerivedClass d;
-	d.print();
+	d.print();*/
 	
 	//Initial Commit
 	/*Accum<int> integers(0);
