@@ -25,6 +25,7 @@ using std::vector;
 using std::cout;
 
 //operator overload
+/*//operator overload
 //ostream& operator<<(ostream& os, const vector<int>& v)
 //{
 //	os << "[ ";
@@ -40,9 +41,13 @@ using std::cout;
 inline bool operator<(const Point2D pointA, const Point2D pointB)
 {	
 	return pointA.Length() < pointB.Length();
-}
+}*/
 
-//use find for maps
+
+
+
+//maps
+/*//use find for maps
 void PrintC64Memory(map<string, int> const& memory) {
 	auto it = memory.find("C64");
 	//assert(it != memory.end());
@@ -66,7 +71,7 @@ struct Airport
 		Name(name), City(city), Country(country), Latitude(latitude),
 		Longitude(longitude), AltitudeFeet(altitudeFeet){}
 
-};
+};*/
 
 //Interfaces
 /*class MyAbstractClass {
@@ -81,10 +86,10 @@ public:
 	}
 };*/
 
+//Arrays
 //4.Klasse für Fehlerhandling
 class IndexOutOfBoundsException {};
 
-//Arrays
 class IntArray {
 private:
 	int* m_ptr{ nullptr };	//Pointer towards memory location of defined elements 
@@ -142,8 +147,20 @@ public:
 	}
 };
 
+//overload insert operator
+//cout ist element von std::ostream (deshalb als return value)
+//works not only with cout but ostream (e.g. file output)
+ostream& operator<< (ostream& os, const IntArray& a)
+{
+	os << "[ ";
+	for (int i = 0; i < a.Size(); i++)
+	{
+		os << a[i] << " ";
+	}
+	os << "]";
 
-
+	return os;
+}
 
 int main()
 {
@@ -162,6 +179,8 @@ int main()
 	int bSize = b.Size();
 	assert(!b.IsEmpty());
 	int testVal = b[4];
+
+	cout << b;
 	
 	//Interfaces and virtual
 	/*//Instanziierung der reinen virtual (abstract) class not allowed
