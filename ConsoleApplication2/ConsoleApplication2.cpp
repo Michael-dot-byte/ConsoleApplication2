@@ -144,6 +144,30 @@ inline bool operator<(const Point2D pointA, const Point2D pointB)
 }
 */
 
+//Binary searching
+int BinarySearch(int element, const int* v, int size) {
+	int left = 0;
+	int right = size - 1;
+	int kNotFound = -1;
+
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+		if (v[middle] == element)
+		{
+			return middle;
+		}
+		else if (v[middle] < element)
+		{
+			left = middle + 1;		
+		}
+		else if (v[middle] > element)
+		{
+			right = middle - 1;
+		}
+	}
+	return kNotFound;
+}
 
 int main()
 {
@@ -660,7 +684,10 @@ int main()
 		cout << airport.AltitudeFeet << '\n';
 	}*/
 
-	
+	//Efficient searching
+	//Binary searching ; O(log(N))
+	vector<int> v{ 11,22,33,44,55,66 };
+	int pos = BinarySearch(55, v.data(), v.size());
 
 	
 	return 0;
